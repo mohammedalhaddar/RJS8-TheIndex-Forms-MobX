@@ -2,11 +2,14 @@ import React from "react";
 
 // Components
 import BookTable from "./BookTable";
+import AddBookModal from "./AddBookModal";
 
 // Stores
 import authorStore from "./stores/authorStore";
 import bookStore from "./stores/bookStore";
 
+
+import {observer} from "mobx-react";
 const AuthorDetail = props => {
   const authorID = props.match.params.authorID;
   const author = authorStore.getAuthorById(authorID);
@@ -16,6 +19,7 @@ const AuthorDetail = props => {
 
   return (
     <div>
+      <AddBookModal author={author}/>
       <div>
         <h3>{authorName}</h3>
         <img
@@ -29,4 +33,4 @@ const AuthorDetail = props => {
   );
 };
 
-export default AuthorDetail;
+export default observer(AuthorDetail);

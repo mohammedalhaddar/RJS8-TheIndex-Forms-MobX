@@ -1,6 +1,8 @@
 import React from "react";
 
 import BookRow from "./BookRow";
+import { observer } from "mobx-react";
+
 
 const BookTable = props => {
   const bookRows = props.books.map(book => (
@@ -21,4 +23,4 @@ const BookTable = props => {
   );
 };
 
-export default BookTable;
+export default observer(BookTable);

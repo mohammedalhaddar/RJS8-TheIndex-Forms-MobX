@@ -5,6 +5,9 @@ const instance = axios.create({
   baseURL: "https://the-index-api.herokuapp.com/api/"
 });
 
+instance.defaults.headers.common.Authorization =
+"JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODcsInVzZXJuYW1lIjoidGVzdGluZ2czIiwiZXhwIjoxNTc5MTA2NTU0LCJlbWFpbCI6InRlc3QxQGluZ2cuY29tIn0.p2fmwmyc5xalKjvo4blbk-GZ4bZlnqt9c0H93tT8tWU"
+
 function errToArray(err) {
   return Object.keys(err).map(key => `${key}: ${err[key]}`);
 }
